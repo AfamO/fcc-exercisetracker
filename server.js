@@ -80,8 +80,8 @@ app.get('/api/exercise/log?',function (req,res) {
             response.from=from;
           if(to!=null)
             response.to=to;
-          response.count=data.length;
-          const exerciseLogsFromByMap=data.filter((log).map((log)=>new Log(log.description,log.duration,log.date));
+          const exerciseLogsFromByMap=data.filter((log)=>log.date!=null).map((log)=>new Log(log.description,log.duration,log.date));
+          response.count=exerciseLogsFromByMap.length;
           response.log=exerciseLogsFromByMap;
           res.json(response);
         }
